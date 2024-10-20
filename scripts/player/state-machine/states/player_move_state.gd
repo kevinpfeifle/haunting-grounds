@@ -4,8 +4,8 @@ extends PlayerState
 func enter(args: Array) -> void:
 	super(args)
 	# Adds this back in once animations are ready.
-	# if character.animation_player.current_animation != "move":
-	# 	character.animation_player.play("move")
+	if character.animation_player.current_animation != "move":
+		character.animation_player.play("move")
 
 func physics_update(_delta):
 	var input_x: float = Input.get_axis("player_left", "player_right")
@@ -15,9 +15,9 @@ func physics_update(_delta):
 	character.velocity.y = input_y * character.SPEED
 	
 	if character.velocity.x < 0:
-		character.sprite.scale.x = -1
-	elif character.velocity.x > 0:
 		character.sprite.scale.x = 1
+	elif character.velocity.x > 0:
+		character.sprite.scale.x = -1
 
 	character.move_and_slide()
 

@@ -1,29 +1,74 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0v64qwp0xcry"]
+[gd_scene load_steps=10 format=3 uid="uid://c0v64qwp0xcry"]
 
 [ext_resource type="Script" path="res://scripts/player/state-machine/player_state_machine.gd" id="1_ct0lq"]
 [ext_resource type="Script" path="res://scripts/player/character.gd" id="1_tk1pp"]
-[ext_resource type="Texture2D" uid="uid://bffmc6db3pe4y" path="res://assets/ghost_TEMP.png" id="2_i5iem"]
+[ext_resource type="Texture2D" uid="uid://c5e7l4e0q0cge" path="res://assets/sprites/characters/ghoulie.png" id="2_umnyq"]
 [ext_resource type="Script" path="res://scripts/player/state-machine/states/player_idle_state.gd" id="4_2yla2"]
 [ext_resource type="Script" path="res://scripts/player/state-machine/states/player_move_state.gd" id="5_vinsg"]
 
+[sub_resource type="Animation" id="Animation_k2gxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pagk4"]
+resource_name = "move"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xt2c0"]
+_data = {
+"RESET": SubResource("Animation_k2gxy"),
+"move": SubResource("Animation_pagk4")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qllv8"]
-size = Vector2(39, 60)
+size = Vector2(66.7683, 62.5)
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "sprite")]
 scale = Vector2(1.00347, 1)
+collision_layer = 2
 script = ExtResource("1_tk1pp")
 animation_player = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite")
-SPEED = 200
+SPEED = 500
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.99733, 0.956522)
-texture = ExtResource("2_i5iem")
+position = Vector2(-1.99309, -4)
+texture = ExtResource("2_umnyq")
+hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xt2c0")
+}
+speed_scale = 0.8
 
-[node name="CollisionBox" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1)
+[node name="WallCollisionArea" type="CollisionShape2D" parent="."]
+position = Vector2(15.4464, 125.25)
+
 shape = SubResource("RectangleShape2D_qllv8")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]

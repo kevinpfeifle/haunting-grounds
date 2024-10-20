@@ -68,6 +68,7 @@ speed_scale = 0.8
 
 [node name="WallCollisionArea" type="CollisionShape2D" parent="."]
 position = Vector2(15.4464, 125.25)
+
 shape = SubResource("RectangleShape2D_qllv8")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]

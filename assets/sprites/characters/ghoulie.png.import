@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bffmc6db3pe4y"
-path="res://.godot/imported/ghost_TEMP.png-2f9c506739b27df00211956f0f5ffd99.ctex"
+uid="uid://c5e7l4e0q0cge"
+path="res://.godot/imported/ghoulie.png-ba8a97c4c4f45c3e031ec25c1c670ec3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ghost_TEMP.png"
-dest_files=["res://.godot/imported/ghost_TEMP.png-2f9c506739b27df00211956f0f5ffd99.ctex"]
+source_file="res://assets/sprites/characters/ghoulie.png"
+dest_files=["res://.godot/imported/ghoulie.png-ba8a97c4c4f45c3e031ec25c1c670ec3.ctex"]
 
 [params]
 

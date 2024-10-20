@@ -1,15 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://tvytredbihgx"]
 
-[ext_resource type="Texture2D" uid="uid://cxwu7flkc7h5o" path="res://assets/temp_background.jpg" id="1_62uho"]
 [ext_resource type="PackedScene" uid="uid://bqbigqdlnqval" path="res://scenes/player/player_controller.tscn" id="1_pshu1"]
+[ext_resource type="PackedScene" uid="uid://djlla05rltbj1" path="res://scenes/map.tscn" id="2_25813"]
 
 [node name="Game" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -729.0
-offset_top = -448.0
-offset_right = 671.0
-offset_bottom = 404.0
-texture = ExtResource("1_62uho")
+[node name="Map" parent="." instance=ExtResource("2_25813")]
 
 [node name="PlayerController" parent="." instance=ExtResource("1_pshu1")]

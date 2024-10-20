@@ -13,9 +13,10 @@ size = Vector2(39, 60)
 script = ExtResource("1_tk1pp")
 animation_player = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite")
-SPEED = 100
+SPEED = 200
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.99733, 0.956522)
 texture = ExtResource("2_i5iem")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

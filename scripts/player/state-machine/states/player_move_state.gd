@@ -15,9 +15,9 @@ func physics_update(_delta):
 	character.velocity.y = input_y * character.SPEED
 	
 	if character.velocity.x < 0:
-		character.sprite.position.x = -1
-	else:
-		character.sprite.position.x = 1
+		character.sprite.scale.x = -1
+	elif character.velocity.x > 0:
+		character.sprite.scale.x = 1
 
 	character.move_and_slide()
 

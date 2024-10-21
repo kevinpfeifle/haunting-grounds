@@ -9,6 +9,11 @@ var mouse_position: Vector2
 var camera_lock: bool = true
 var dragging: bool = false
 
+@onready var raycast = $RayCast2D
+
+func _ready():
+	raycast.enabled = true
+
 func _process(_delta):
 	if camera_lock and (player_last_pos != player.position):
 		position = player.position
@@ -34,3 +39,13 @@ func _input(event):
 		position = player.position
 	elif event.is_action_pressed("camera_lock"):
 		camera_lock = !camera_lock
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		raycast.target_position = (mouse_pos - global_position).normalized() * 1000		
+		raycast.force_raycast_update()
+		
+		if raycast.is_colliding():
+			var collider = raycast.get_collider() 
+			if collider is DefaultObject:
+				collider.inspect()

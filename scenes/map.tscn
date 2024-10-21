@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://djlla05rltbj1"]
+[gd_scene load_steps=15 format=4 uid="uid://djlla05rltbj1"]
 
 [ext_resource type="Texture2D" uid="uid://cos74mgspbe6y" path="res://assets/sprites/building/floors/floor_wood.png" id="1_3vk31"]
 [ext_resource type="Texture2D" uid="uid://bl8scx4psnacy" path="res://assets/sprites/building/walls/wall_purple_wood.png" id="2_hf7jw"]
 [ext_resource type="Texture2D" uid="uid://bw66g8o77g17m" path="res://assets/sprites/chair_1.png" id="3_ictby"]
+[ext_resource type="Script" path="res://scripts/objects/Spawner.gd" id="4_oufcs"]
+[ext_resource type="Script" path="res://scripts/objects/ObjectSpawnInfo.gd" id="6_2083j"]
+[ext_resource type="PackedScene" uid="uid://dijyi56o1lbdt" path="res://scenes/objects/candle.tscn" id="7_bv37r"]
+[ext_resource type="PackedScene" uid="uid://dtdeplaixpape" path="res://scenes/objects/urn.tscn" id="8_0qscx"]
+[ext_resource type="Script" path="res://scripts/objects/SpawnPoint.gd" id="8_aeu43"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3y567"]
 texture = ExtResource("1_3vk31")
@@ -559,6 +564,21 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_3y567")
 sources/1 = SubResource("TileSetAtlasSource_itlim")
 
+[sub_resource type="Resource" id="Resource_gonlc"]
+script = ExtResource("6_2083j")
+item_scene = ExtResource("7_bv37r")
+chance = 50.0
+
+[sub_resource type="Resource" id="Resource_fby4a"]
+script = ExtResource("6_2083j")
+item_scene = ExtResource("8_0qscx")
+chance = 50.0
+
+[sub_resource type="Resource" id="Resource_c7gs1"]
+script = ExtResource("6_2083j")
+item_scene = ExtResource("7_bv37r")
+chance = 100.0
+
 [node name="Map" type="TileMapLayer"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wEAAAAAAAAAAAAAAP3/AQAAAAAAAAABAP//AQAAAAAAAAABAP7/AQAAAAAAAAD+////AQAAAAAABAD///7/AQAAAAAABAD///3/AQAAAAAABAA=")
@@ -568,3 +588,18 @@ tile_set = SubResource("TileSet_g1jma")
 z_index = 1
 position = Vector2(671, -123)
 texture = ExtResource("3_ictby")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("4_oufcs")
+
+[node name="SpawnPoint1" type="Marker2D" parent="Spawner"]
+position = Vector2(246, -219)
+script = ExtResource("8_aeu43")
+spawn_chance = 100.0
+possible_items = Array[ExtResource("6_2083j")]([SubResource("Resource_gonlc"), SubResource("Resource_fby4a")])
+
+[node name="SpawnPoint2" type="Marker2D" parent="Spawner"]
+position = Vector2(-332, 91)
+script = ExtResource("8_aeu43")
+spawn_chance = 70.0
+possible_items = Array[ExtResource("6_2083j")]([SubResource("Resource_c7gs1")])

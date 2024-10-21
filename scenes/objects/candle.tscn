@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dijyi56o1lbdt"]
+
+[ext_resource type="PackedScene" uid="uid://875d3auqxh85" path="res://scenes/objects/default_object.tscn" id="1_gby4o"]
+[ext_resource type="Texture2D" uid="uid://bf1w87cw4hb2j" path="res://assets/sprites/objects/candle.png" id="2_8gbtm"]
+
+[node name="Candle" instance=ExtResource("1_gby4o")]
+object_name = "Candle"
+description = "It burns"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_8gbtm")

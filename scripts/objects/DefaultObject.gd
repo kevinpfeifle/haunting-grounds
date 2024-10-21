@@ -1,10 +1,18 @@
 class_name DefaultObject
 extends StaticBody2D
 
+@onready var anim_sprite = $AnimatedSprite2D
+@onready var sprite = $Sprite2D
+
 @export var object_name: String = "Default Object"
 @export var description: String = "Currently an urn, but doesn't have to be."
 
 @export var is_objective_item: bool = false
+
+func _ready() -> void:
+    if anim_sprite != null:
+        sprite.visible = false
+
 
 func interact_player() -> void:
     print("Interacting with: %s" % object_name)
@@ -25,3 +33,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
         interact_player()
     # elif body is NPC:
     #     interact_npc()
+
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+        if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+            inspect()

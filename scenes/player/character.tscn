@@ -1,10 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0v64qwp0xcry"]
+[gd_scene load_steps=12 format=3 uid="uid://c0v64qwp0xcry"]
 
 [ext_resource type="Script" path="res://scripts/player/state-machine/player_state_machine.gd" id="1_ct0lq"]
 [ext_resource type="Script" path="res://scripts/player/character.gd" id="1_tk1pp"]
 [ext_resource type="Texture2D" uid="uid://c5e7l4e0q0cge" path="res://assets/sprites/characters/ghoulie.png" id="2_umnyq"]
 [ext_resource type="Script" path="res://scripts/player/state-machine/states/player_idle_state.gd" id="4_2yla2"]
 [ext_resource type="Script" path="res://scripts/player/state-machine/states/player_move_state.gd" id="5_vinsg"]
+
+[sub_resource type="Gradient" id="Gradient_mcjyk"]
+offsets = PackedFloat32Array(0, 0.292683, 0.701219, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4d7wa"]
+gradient = SubResource("Gradient_mcjyk")
+fill = 1
+fill_from = Vector2(0.508772, 0.548246)
 
 [sub_resource type="Animation" id="Animation_k2gxy"]
 length = 0.001
@@ -60,6 +69,13 @@ position = Vector2(-1.19209e-07, -120)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_umnyq")
 hframes = 12
+
+[node name="Shadow" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.0759, 0.044, 0.11, 0.647059)
+position = Vector2(10.962, 31)
+scale = Vector2(2.46194, 0.609375)
+texture = SubResource("GradientTexture2D_4d7wa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

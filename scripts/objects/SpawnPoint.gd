@@ -3,7 +3,8 @@ extends Marker2D
 
 @export var spawn_chance: float = 50.0
 @export var possible_items: Array[ObjectSpawnInfo] = []
-
+var is_item_spawned: bool = false;
+var item_reference: DefaultObject
 
 func _ready():
     validate_chances()

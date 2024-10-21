@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtdeplaixpape"]
+
+[ext_resource type="PackedScene" uid="uid://875d3auqxh85" path="res://scenes/objects/default_object.tscn" id="1_ccrlt"]
+
+[node name="Urn" instance=ExtResource("1_ccrlt")]
+object_name = "Urn"
+description = "It holds ashes"
+is_objective_item = true

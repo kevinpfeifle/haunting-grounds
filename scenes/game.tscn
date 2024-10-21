@@ -11,6 +11,7 @@ y_sort_enabled = true
 visible = false
 
 [node name="Mourningwood Manor" parent="." instance=ExtResource("2_uft56")]
+position = Vector2(2, 89)
 
 [node name="PlayerController" parent="Mourningwood Manor" instance=ExtResource("1_pshu1")]
-position = Vector2(550, 1005)
+position = Vector2(-298, 659)

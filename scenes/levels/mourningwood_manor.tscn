@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=4 uid="uid://cp38n3dvafl7g"]
+
+[ext_resource type="TileSet" uid="uid://cevxebqg38bcs" path="res://assets/tilesets/mourningwood_manor.tres" id="1_2dm2y"]
+[ext_resource type="Script" path="res://scripts/building/room.gd" id="1_dnbas"]
+
+[sub_resource type="Animation" id="Animation_jtv8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontWalls:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b3wq7"]
+resource_name = "front_walls_fade_in"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontWalls:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.25098), Color(1, 1, 1, 0.376471), Color(1, 1, 1, 0.501961), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l074l"]
+resource_name = "front_walls_fade_out"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontWalls:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.501961), Color(1, 1, 1, 0.376471), Color(1, 1, 1, 0.25098)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7qnui"]
+_data = {
+"RESET": SubResource("Animation_jtv8s"),
+"front_walls_fade_in": SubResource("Animation_b3wq7"),
+"front_walls_fade_out": SubResource("Animation_l074l")
+}
+
+[node name="Mourningwood Manor" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TestRoom" type="Node2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(1, 0.997428)
+script = ExtResource("1_dnbas")
+
+[node name="Floor" type="TileMapLayer" parent="TestRoom"]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAAABQAAAAAAAAAAAAEABQAAAAAAAAABAAIABQAAAAAAAAAAAAMABQAAAAAAAAAAAAIABQAAAAAAAAD//wEABQAAAAAAAAD//wIABQAAAAAAAAD//wMABQAAAAAAAAAAAAQABQAAAAAAAAA=")
+tile_set = ExtResource("1_2dm2y")
+
+[node name="BackWalls" type="TileMapLayer" parent="TestRoom"]
+y_sort_enabled = true
+scale = Vector2(0.991773, 1)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAAAABwAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAA=")
+tile_set = ExtResource("1_2dm2y")
+
+[node name="FrontWalls" type="TileMapLayer" parent="TestRoom"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAAAAAAAAAAABAAIAAAAAAAAAAAA=")
+tile_set = ExtResource("1_2dm2y")
+
+[node name="CeilingShadow" type="TileMapLayer" parent="TestRoom"]
+visible = false
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD///7/BAAAAAAAAAD///3/BAAAAAAAAAAAAPz/BAAAAAAAAAAAAP3/BAAAAAAAAAABAP7/BAAAAAAAAAD/////BAAAAAAAAAAAAAAABAAAAAAAAAAAAP//BAAAAAAAAAAAAP7/BAAAAAAAAAA=")
+tile_set = ExtResource("1_2dm2y")
+
+[node name="RoomArea" type="Area2D" parent="TestRoom"]
+visible = false
+position = Vector2(256, 0)
+collision_layer = 0
+
+[node name="RoomCollisionShape" type="CollisionPolygon2D" parent="TestRoom/RoomArea"]
+position = Vector2(-256, 0)
+polygon = PackedVector2Array(256, 0, 1024, 383, 256, 768, -512, 383)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TestRoom"]
+libraries = {
+"": SubResource("AnimationLibrary_7qnui")
+}

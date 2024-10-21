@@ -8,6 +8,91 @@
 [ext_resource type="PackedScene" uid="uid://dijyi56o1lbdt" path="res://scenes/objects/candle.tscn" id="6_0wjly"]
 [ext_resource type="PackedScene" uid="uid://dtdeplaixpape" path="res://scenes/objects/urn.tscn" id="7_5qc06"]
 
+[gd_scene load_steps=22 format=4 uid="uid://cp38n3dvafl7g"]
+
+[ext_resource type="TileSet" uid="uid://cevxebqg38bcs" path="res://assets/tilesets/mourningwood_manor.tres" id="1_2dm2y"]
+[ext_resource type="Script" path="res://scripts/building/room.gd" id="1_dnbas"]
+[ext_resource type="Texture2D" uid="uid://def5j3a1egmqy" path="res://assets/sprites/building/walls/wall_brown_left.png" id="3_2sm6x"]
+[ext_resource type="Texture2D" uid="uid://c72eu46d86vst" path="res://assets/sprites/building/walls/wall_brown_right.png" id="4_kxjlg"]
+[ext_resource type="Texture2D" uid="uid://cos74mgspbe6y" path="res://assets/sprites/building/floors/floor_wood.png" id="5_1q5ai"]
+[ext_resource type="Texture2D" uid="uid://dm3vw4kq5px2a" path="res://assets/sprites/building/ceilings/ceiling_shadow_center.png" id="6_1f1hp"]
+[ext_resource type="Texture2D" uid="uid://5t83pm5jn36f" path="res://assets/sprites/building/floors/floor_purple.png" id="7_jlp12"]
+[ext_resource type="Texture2D" uid="uid://bo61q7pjmg38w" path="res://assets/sprites/building/walls/wall_brown_front_corner.png" id="8_673cg"]
+[ext_resource type="Texture2D" uid="uid://cgg4f1qtdnda2" path="res://assets/sprites/building/walls/walL_brown_back_corner.png" id="9_j3ah8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikwin"]
+resource_name = "wall_brown_left"
+texture = ExtResource("3_2sm6x")
+texture_region_size = Vector2i(256, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-128, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(256, 0, 256, -158, 0, -30, 0, 128)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 128, -0.44545, 97.6648, 255.688, -30.1792, 255, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx2dr"]
+resource_name = "wall_brown_right"
+texture = ExtResource("4_kxjlg")
+texture_region_size = Vector2i(256, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(128, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 0, -256, -158, 0, -30, 0, 128)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 128, -255.911, -0.0556812, -256.022, -30.3462, -0.280613, 98.7065)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxmbv"]
+resource_name = "floor_wood"
+texture = ExtResource("5_1q5ai")
+texture_region_size = Vector2i(512, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3f37m"]
+resource_name = "ceiling_shadow_center"
+texture = ExtResource("6_1f1hp")
+texture_region_size = Vector2i(512, 256)
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0.352941)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8kdr"]
+resource_name = "floor_purple"
+texture = ExtResource("7_jlp12")
+texture_region_size = Vector2i(510, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pj530"]
+resource_name = "wall_brown_front_corner"
+texture = ExtResource("8_673cg")
+texture_region_size = Vector2i(510, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 128, 255, 0, 255, -158, 0, -30, -255, -158, -255, 0)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-255, 0, 0, 128, 255, 0, 254.205, -29.1682, 0.707108, 98.8182, -255.266, -30.9359)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qehxx"]
+resource_name = "wall_brown_back_corner"
+texture = ExtResource("9_j3ah8")
+texture_region_size = Vector2i(510, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 319)
+0:0/0/y_sort_origin = -175
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-255, 0, -255, -158, 0, -286, 255, -158, 255, 0, 0, -128)
+
+[sub_resource type="TileSet" id="TileSet_wgjhw"]
+tile_shape = 1
+tile_size = Vector2i(510, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+physics_layer_1/collision_layer = 0
+physics_layer_1/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_ikwin")
+sources/1 = SubResource("TileSetAtlasSource_lx2dr")
+sources/3 = SubResource("TileSetAtlasSource_gxmbv")
+sources/4 = SubResource("TileSetAtlasSource_3f37m")
+sources/5 = SubResource("TileSetAtlasSource_v8kdr")
+sources/6 = SubResource("TileSetAtlasSource_pj530")
+sources/7 = SubResource("TileSetAtlasSource_qehxx")
+
 [sub_resource type="Animation" id="Animation_jtv8s"]
 length = 0.001
 tracks/0/type = "value"
@@ -101,7 +186,7 @@ tile_set = ExtResource("1_2dm2y")
 [node name="FrontWalls" type="TileMapLayer" parent="TestRoom"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAAAAAAAAAAABAAIAAAAAAAAAAAA=")
-tile_set = ExtResource("1_2dm2y")
+tile_set = SubResource("TileSet_wgjhw")
 
 [node name="CeilingShadow" type="TileMapLayer" parent="TestRoom"]
 visible = false
@@ -111,13 +196,13 @@ tile_map_data = PackedByteArray("AAD///7/BAAAAAAAAAD///3/BAAAAAAAAAAAAPz/BAAAAAA
 tile_set = ExtResource("1_2dm2y")
 
 [node name="RoomArea" type="Area2D" parent="TestRoom"]
-visible = false
 position = Vector2(256, 0)
-collision_layer = 0
+collision_layer = 4
+collision_mask = 2
 
 [node name="RoomCollisionShape" type="CollisionPolygon2D" parent="TestRoom/RoomArea"]
 position = Vector2(-256, 0)
-polygon = PackedVector2Array(256, 0, 1024, 383, 256, 768, -512, 383)
+polygon = PackedVector2Array(256, 3.00774, 1016, 383.988, 255, 763.965, -506, 383.988)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TestRoom"]
 libraries = {
@@ -138,3 +223,5 @@ position = Vector2(-556, 746)
 script = ExtResource("4_c1ql2")
 spawn_chance = 70.0
 possible_items = Array[ExtResource("5_a8rl4")]([SubResource("Resource_c7gs1")])
+[connection signal="body_entered" from="TestRoom/RoomArea" to="TestRoom" method="_on_room_area_body_entered"]
+[connection signal="body_exited" from="TestRoom/RoomArea" to="TestRoom" method="_on_room_area_body_exited"]

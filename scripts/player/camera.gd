@@ -30,7 +30,7 @@ func _input(event):
 		if zoom != Vector2(4, 4):
 			zoom += Vector2(zoom_speed, zoom_speed)
 	elif event.is_action_pressed("camera_zoom_out"):
-		if zoom != Vector2(-1, -1):
+		if zoom != Vector2(1, 1):
 			zoom += Vector2(-zoom_speed, -zoom_speed)
 	elif event.is_action_pressed("center_camera"):
 		position = player.position

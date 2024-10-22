@@ -1,17 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://tvytredbihgx"]
+[gd_scene load_steps=3 format=3 uid="uid://tvytredbihgx"]
 
 [ext_resource type="PackedScene" uid="uid://bqbigqdlnqval" path="res://scenes/player/player_controller.tscn" id="1_pshu1"]
-[ext_resource type="PackedScene" uid="uid://djlla05rltbj1" path="res://scenes/map.tscn" id="2_25813"]
 [ext_resource type="PackedScene" uid="uid://cp38n3dvafl7g" path="res://scenes/levels/mourningwood_manor.tscn" id="2_uft56"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Map" parent="." instance=ExtResource("2_25813")]
-visible = false
-
 [node name="Mourningwood Manor" parent="." instance=ExtResource("2_uft56")]
 position = Vector2(2, 89)
 
 [node name="PlayerController" parent="Mourningwood Manor" instance=ExtResource("1_pshu1")]
-position = Vector2(-298, 659)
+position = Vector2(-362, 731)

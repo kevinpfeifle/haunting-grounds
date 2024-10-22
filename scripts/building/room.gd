@@ -20,7 +20,11 @@ func _ready():
 
 func _on_room_area_body_entered(body: Node2D):
 	if body.name == "Character":
+		# Play the fade out animations for the walls and any doors.
 		animation_player.play("front_walls_fade_out")
+		# for child in front_walls.get_children():
+		# 	if child is Door:
+		# 		child.animation_player.play("door_fade_out")
 		# Swaps between the two phyics layers and y-sort values for the bottom walls of a room.
 		front_walls.tile_set.set_physics_layer_collision_layer(0, 0)
 		front_walls.tile_set.set_physics_layer_collision_mask(0, 0)
@@ -32,7 +36,11 @@ func _on_room_area_body_entered(body: Node2D):
 
 func _on_room_area_body_exited(body: Node2D):
 	if body.name == "Character":
+		# Play the fade in animations for the walls and any doors.
 		animation_player.play("front_walls_fade_in")
+		# for child in front_walls.get_children():
+		# 	if child is Door:
+		# 		child.animation_player.play("door_fade_in")
 		# Swaps between the two phyics layers and y-sort values for the bottom walls of a room.
 		front_walls.tile_set.set_physics_layer_collision_layer(0, 1)
 		front_walls.tile_set.set_physics_layer_collision_mask(0, 2)

@@ -1,16 +1,19 @@
-[gd_scene load_steps=22 format=4 uid="uid://cp38n3dvafl7g"]
+[gd_scene load_steps=35 format=4 uid="uid://cp38n3dvafl7g"]
 
 [ext_resource type="TileSet" uid="uid://cevxebqg38bcs" path="res://assets/tilesets/mourningwood_manor.tres" id="1_2dm2y"]
 [ext_resource type="Script" path="res://scripts/building/room.gd" id="1_dnbas"]
 [ext_resource type="Texture2D" uid="uid://def5j3a1egmqy" path="res://assets/sprites/building/walls/wall_brown_left.png" id="3_2sm6x"]
 [ext_resource type="Texture2D" uid="uid://c72eu46d86vst" path="res://assets/sprites/building/walls/wall_brown_right.png" id="4_kxjlg"]
 [ext_resource type="Texture2D" uid="uid://cos74mgspbe6y" path="res://assets/sprites/building/floors/floor_wood.png" id="5_1q5ai"]
+[ext_resource type="Texture2D" uid="uid://deoqgmclew6g3" path="res://assets/sprites/building/doors/doorway_brown_right.png" id="5_vbrse"]
 [ext_resource type="Texture2D" uid="uid://dm3vw4kq5px2a" path="res://assets/sprites/building/ceilings/ceiling_shadow_center.png" id="6_1f1hp"]
 [ext_resource type="Texture2D" uid="uid://5t83pm5jn36f" path="res://assets/sprites/building/floors/floor_purple.png" id="7_jlp12"]
 [ext_resource type="Texture2D" uid="uid://bo61q7pjmg38w" path="res://assets/sprites/building/walls/wall_brown_front_corner.png" id="8_673cg"]
 [ext_resource type="Texture2D" uid="uid://cgg4f1qtdnda2" path="res://assets/sprites/building/walls/walL_brown_back_corner.png" id="9_j3ah8"]
+[ext_resource type="Texture2D" uid="uid://dvtfhigkyitbo" path="res://assets/sprites/building/doors/doorway_brown_left.png" id="11_2knu6"]
+[ext_resource type="PackedScene" uid="uid://c7gx3q41xhcby" path="res://scenes/building/door.tscn" id="12_wjvd0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikwin"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bijis"]
 resource_name = "wall_brown_left"
 texture = ExtResource("3_2sm6x")
 texture_region_size = Vector2i(256, 640)
@@ -20,7 +23,7 @@ texture_region_size = Vector2i(256, 640)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(256, 0, 256, -158, 0, -30, 0, 128)
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 128, -0.44545, 97.6648, 255.688, -30.1792, 255, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx2dr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oug5n"]
 resource_name = "wall_brown_right"
 texture = ExtResource("4_kxjlg")
 texture_region_size = Vector2i(256, 640)
@@ -30,26 +33,38 @@ texture_region_size = Vector2i(256, 640)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 0, -256, -158, 0, -30, 0, 128)
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 128, -255.911, -0.0556812, -256.022, -30.3462, -0.280613, 98.7065)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxmbv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kbev"]
+resource_name = "doorway_brown_right"
+texture = ExtResource("5_vbrse")
+texture_region_size = Vector2i(256, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(128, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 0, -256, -158, -206, -130, -207, 0, -230, 12)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-50, 103, 0, 128, 0, -29.3449, -49.1439, -53.7401)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-256, 0, -256, -29, -231.227, -16.8369, -231.175, 11.959)
+0:0/0/physics_layer_1/polygon_1/points = PackedVector2Array(-50, 103, -49.851, 73.8927, 0.176781, 98.6414, 0, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbghk"]
 resource_name = "floor_wood"
 texture = ExtResource("5_1q5ai")
 texture_region_size = Vector2i(512, 256)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3f37m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mde12"]
 resource_name = "ceiling_shadow_center"
 texture = ExtResource("6_1f1hp")
 texture_region_size = Vector2i(512, 256)
 0:0/0 = 0
 0:0/0/modulate = Color(1, 1, 1, 0.352941)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8kdr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8igda"]
 resource_name = "floor_purple"
 texture = ExtResource("7_jlp12")
 texture_region_size = Vector2i(510, 256)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pj530"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r5yal"]
 resource_name = "wall_brown_front_corner"
 texture = ExtResource("8_673cg")
 texture_region_size = Vector2i(510, 640)
@@ -59,7 +74,7 @@ texture_region_size = Vector2i(510, 640)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 128, 255, 0, 255, -158, 0, -30, -255, -158, -255, 0)
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-255, 0, 0, 128, 255, 0, 254.205, -29.1682, 0.707108, 98.8182, -255.266, -30.9359)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qehxx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvt7x"]
 resource_name = "wall_brown_back_corner"
 texture = ExtResource("9_j3ah8")
 texture_region_size = Vector2i(510, 640)
@@ -68,20 +83,34 @@ texture_region_size = Vector2i(510, 640)
 0:0/0/y_sort_origin = -175
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-255, 0, -255, -158, 0, -286, 255, -158, 255, 0, 0, -128)
 
-[sub_resource type="TileSet" id="TileSet_wgjhw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgcjt"]
+resource_name = "doorway_brown_left"
+texture = ExtResource("11_2knu6")
+texture_region_size = Vector2i(256, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-128, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(256, 0, 256, -158, 206, -130, 207, 0, 230, 12)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(50, 103, 0, 128, 0, -29.3449, 49.1439, -53.7401)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(256, 0, 256, -29, 231.227, -16.8369, 231.175, 11.959)
+0:0/0/physics_layer_1/polygon_1/points = PackedVector2Array(50, 103, 49.851, 73.8927, 0.176781, 98.6414, 0, 128)
+
+[sub_resource type="TileSet" id="TileSet_yg1d3"]
 tile_shape = 1
 tile_size = Vector2i(510, 256)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 physics_layer_1/collision_layer = 0
 physics_layer_1/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_ikwin")
-sources/1 = SubResource("TileSetAtlasSource_lx2dr")
-sources/3 = SubResource("TileSetAtlasSource_gxmbv")
-sources/4 = SubResource("TileSetAtlasSource_3f37m")
-sources/5 = SubResource("TileSetAtlasSource_v8kdr")
-sources/6 = SubResource("TileSetAtlasSource_pj530")
-sources/7 = SubResource("TileSetAtlasSource_qehxx")
+sources/0 = SubResource("TileSetAtlasSource_bijis")
+sources/1 = SubResource("TileSetAtlasSource_oug5n")
+sources/3 = SubResource("TileSetAtlasSource_kbghk")
+sources/4 = SubResource("TileSetAtlasSource_mde12")
+sources/5 = SubResource("TileSetAtlasSource_8igda")
+sources/6 = SubResource("TileSetAtlasSource_r5yal")
+sources/7 = SubResource("TileSetAtlasSource_rvt7x")
+sources/2 = SubResource("TileSetAtlasSource_6kbev")
+sources/8 = SubResource("TileSetAtlasSource_tgcjt")
 
 [sub_resource type="Animation" id="Animation_jtv8s"]
 length = 0.001
@@ -139,6 +168,79 @@ _data = {
 "front_walls_fade_out": SubResource("Animation_l074l")
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwu6b"]
+resource_name = "wall_brown_left"
+texture = ExtResource("3_2sm6x")
+texture_region_size = Vector2i(256, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-128, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(256, 0, 256, -158, 0, -30, 0, 128)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 128, -0.44545, 97.6648, 255.688, -30.1792, 255, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pexw8"]
+resource_name = "wall_brown_right"
+texture = ExtResource("4_kxjlg")
+texture_region_size = Vector2i(256, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(128, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 0, -256, -158, 0, -30, 0, 128)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 128, -255.911, -0.0556812, -256.022, -30.3462, -0.280613, 98.7065)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83ybu"]
+resource_name = "floor_wood"
+texture = ExtResource("5_1q5ai")
+texture_region_size = Vector2i(512, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7qab"]
+resource_name = "ceiling_shadow_center"
+texture = ExtResource("6_1f1hp")
+texture_region_size = Vector2i(512, 256)
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0.352941)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apqjo"]
+resource_name = "floor_purple"
+texture = ExtResource("7_jlp12")
+texture_region_size = Vector2i(510, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqyw5"]
+resource_name = "wall_brown_front_corner"
+texture = ExtResource("8_673cg")
+texture_region_size = Vector2i(510, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 192)
+0:0/0/y_sort_origin = -35
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 128, 255, 0, 255, -158, 0, -30, -255, -158, -255, 0)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-255, 0, 0, 128, 255, 0, 254.205, -29.1682, 0.707108, 98.8182, -255.266, -30.9359)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quybw"]
+resource_name = "wall_brown_back_corner"
+texture = ExtResource("9_j3ah8")
+texture_region_size = Vector2i(510, 640)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 319)
+0:0/0/y_sort_origin = -175
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-255, 0, -255, -158, 0, -286, 255, -158, 255, 0, 0, -128)
+
+[sub_resource type="TileSet" id="TileSet_lh270"]
+tile_shape = 1
+tile_size = Vector2i(510, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+physics_layer_1/collision_layer = 0
+physics_layer_1/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_cwu6b")
+sources/1 = SubResource("TileSetAtlasSource_pexw8")
+sources/3 = SubResource("TileSetAtlasSource_83ybu")
+sources/4 = SubResource("TileSetAtlasSource_q7qab")
+sources/5 = SubResource("TileSetAtlasSource_apqjo")
+sources/6 = SubResource("TileSetAtlasSource_nqyw5")
+sources/7 = SubResource("TileSetAtlasSource_quybw")
+
 [node name="Mourningwood Manor" type="Node2D"]
 y_sort_enabled = true
 
@@ -154,14 +256,16 @@ tile_set = ExtResource("1_2dm2y")
 
 [node name="BackWalls" type="TileMapLayer" parent="TestRoom"]
 y_sort_enabled = true
-scale = Vector2(0.991773, 1)
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAAAABwAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAA=")
 tile_set = ExtResource("1_2dm2y")
 
 [node name="FrontWalls" type="TileMapLayer" parent="TestRoom"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAAAAAAAAAAABAAIAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_wgjhw")
+tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAAAD//wIAAQAAAAAAAAAAAAMACAAAAAAAAAABAAIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_yg1d3")
+
+[node name="Door" parent="TestRoom/FrontWalls" instance=ExtResource("12_wjvd0")]
+position = Vector2(-122, 578.488)
 
 [node name="CeilingShadow" type="TileMapLayer" parent="TestRoom"]
 visible = false
@@ -177,12 +281,53 @@ collision_mask = 2
 
 [node name="RoomCollisionShape" type="CollisionPolygon2D" parent="TestRoom/RoomArea"]
 position = Vector2(-256, 0)
-polygon = PackedVector2Array(256, 3.00774, 1016, 383.988, 255, 763.965, -506, 383.988)
+polygon = PackedVector2Array(256, 3.00774, 1016, 383.988, 740, 520.338, 716, 512.318, 546, 603.552, 559, 612.576, 255, 763.965, -49, 612.576, -44, 601.547, -207, 514.323, -220, 521.341, -496, 380.98)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TestRoom"]
 libraries = {
 "": SubResource("AnimationLibrary_7qnui")
 }
 
+[node name="TestRoom2" type="Node2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(1, 0.997428)
+script = ExtResource("1_dnbas")
+
+[node name="Floor" type="TileMapLayer" parent="TestRoom2"]
+z_index = -1
+tile_map_data = PackedByteArray("AAD+/wMABQAAAAAAAAD//wQABQAAAAAAAAD//wUABQAAAAAAAAD+/wQABQAAAAAAAAD9/wUABQAAAAAAAAD+/wUABQAAAAAAAAD+/wYABQAAAAAAAAD//wYABQAAAAAAAAD+/wcABQAAAAAAAAD9/wYABQAAAAAAAAD9/wcABQAAAAAAAAD+/wgABQAAAAAAAAD+/wkABQAAAAAAAAD//woABQAAAAAAAAD//wsABQAAAAAAAAAAAAwABQAAAAAAAAAAAAsABQAAAAAAAAABAAoABQAAAAAAAAABAAkABQAAAAAAAAACAAgABQAAAAAAAAD//wgABQAAAAAAAAD//wkABQAAAAAAAAAAAAoABQAAAAAAAAAAAAkABQAAAAAAAAAAAAgABQAAAAAAAAD//wcABQAAAAAAAAAAAAYABQAAAAAAAAAAAAcABQAAAAAAAAABAAgABQAAAAAAAAABAAcABQAAAAAAAAABAAYABQAAAAAAAAAAAAUABQAAAAAAAAABAAQABQAAAAAAAAABAAUABQAAAAAAAAACAAYABQAAAAAAAAACAAcABQAAAAAAAAADAAYABQAAAAAAAAACAAUABQAAAAAAAAACAAQABQAAAAAAAAABAAMABQAAAAAAAAA=")
+tile_set = ExtResource("1_2dm2y")
+
+[node name="BackWalls" type="TileMapLayer" parent="TestRoom2"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wIAAAAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAA=")
+tile_set = ExtResource("1_2dm2y")
+
+[node name="FrontWalls" type="TileMapLayer" parent="TestRoom2"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9/wYAAQAAAAAAAAD9/wcAAQAAAAAAAAD+/wgAAQAAAAAAAAD+/wkAAQAAAAAAAAD//woAAQAAAAAAAAD//wsAAQAAAAAAAAAAAAwABgAAAAAAAAAAAAsAAAAAAAAAAAABAAoAAAAAAAAAAAABAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAADAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_lh270")
+
+[node name="CeilingShadow" type="TileMapLayer" parent="TestRoom2"]
+z_index = 1
+y_sort_enabled = true
+tile_set = ExtResource("1_2dm2y")
+
+[node name="RoomArea" type="Area2D" parent="TestRoom2"]
+position = Vector2(256, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="RoomCollisionShape" type="CollisionPolygon2D" parent="TestRoom2/RoomArea"]
+position = Vector2(-1018, 380.98)
+polygon = PackedVector2Array(255, 3.00772, 1021, 386.995, 1785, 3.00772, 2802, 512.318, 1020, 1405.62, -760, 513.32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TestRoom2"]
+libraries = {
+"": SubResource("AnimationLibrary_7qnui")
+}
+
 [connection signal="body_entered" from="TestRoom/RoomArea" to="TestRoom" method="_on_room_area_body_entered"]
 [connection signal="body_exited" from="TestRoom/RoomArea" to="TestRoom" method="_on_room_area_body_exited"]
+[connection signal="body_entered" from="TestRoom2/RoomArea" to="TestRoom2" method="_on_room_area_body_entered"]
+[connection signal="body_exited" from="TestRoom2/RoomArea" to="TestRoom2" method="_on_room_area_body_exited"]

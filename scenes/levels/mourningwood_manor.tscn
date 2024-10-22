@@ -3,10 +3,15 @@
 [ext_resource type="TileSet" uid="uid://cevxebqg38bcs" path="res://assets/tilesets/mourningwood_manor.tres" id="1_2dm2y"]
 [ext_resource type="Script" path="res://scripts/building/room.gd" id="1_dnbas"]
 [ext_resource type="Texture2D" uid="uid://def5j3a1egmqy" path="res://assets/sprites/building/walls/wall_brown_left.png" id="3_2sm6x"]
+[ext_resource type="Script" path="res://scripts/objects/Spawner.gd" id="3_ujja3"]
+[ext_resource type="Script" path="res://scripts/objects/SpawnPoint.gd" id="4_c1ql2"]
 [ext_resource type="Texture2D" uid="uid://c72eu46d86vst" path="res://assets/sprites/building/walls/wall_brown_right.png" id="4_kxjlg"]
 [ext_resource type="Texture2D" uid="uid://cos74mgspbe6y" path="res://assets/sprites/building/floors/floor_wood.png" id="5_1q5ai"]
 [ext_resource type="Texture2D" uid="uid://deoqgmclew6g3" path="res://assets/sprites/building/doors/doorway_brown_right.png" id="5_vbrse"]
+[ext_resource type="Script" path="res://scripts/objects/ObjectSpawnInfo.gd" id="5_a8rl4"]
+[ext_resource type="PackedScene" uid="uid://dijyi56o1lbdt" path="res://scenes/objects/candle.tscn" id="6_0wjly"]
 [ext_resource type="Texture2D" uid="uid://dm3vw4kq5px2a" path="res://assets/sprites/building/ceilings/ceiling_shadow_center.png" id="6_1f1hp"]
+[ext_resource type="PackedScene" uid="uid://dtdeplaixpape" path="res://scenes/objects/urn.tscn" id="7_5qc06"]
 [ext_resource type="Texture2D" uid="uid://5t83pm5jn36f" path="res://assets/sprites/building/floors/floor_purple.png" id="7_jlp12"]
 [ext_resource type="Texture2D" uid="uid://bo61q7pjmg38w" path="res://assets/sprites/building/walls/wall_brown_front_corner.png" id="8_673cg"]
 [ext_resource type="Texture2D" uid="uid://cgg4f1qtdnda2" path="res://assets/sprites/building/walls/walL_brown_back_corner.png" id="9_j3ah8"]
@@ -241,6 +246,21 @@ sources/5 = SubResource("TileSetAtlasSource_apqjo")
 sources/6 = SubResource("TileSetAtlasSource_nqyw5")
 sources/7 = SubResource("TileSetAtlasSource_quybw")
 
+[sub_resource type="Resource" id="Resource_gonlc"]
+script = ExtResource("5_a8rl4")
+item_scene = ExtResource("6_0wjly")
+chance = 50.0
+
+[sub_resource type="Resource" id="Resource_fby4a"]
+script = ExtResource("5_a8rl4")
+item_scene = ExtResource("7_5qc06")
+chance = 50.0
+
+[sub_resource type="Resource" id="Resource_c7gs1"]
+script = ExtResource("5_a8rl4")
+item_scene = ExtResource("6_0wjly")
+chance = 100.0
+
 [node name="Mourningwood Manor" type="Node2D"]
 y_sort_enabled = true
 
@@ -331,6 +351,21 @@ polygon = PackedVector2Array(255, 3.00772, 1021, 386.995, 1785, 3.00772, 2802, 5
 libraries = {
 "": SubResource("AnimationLibrary_7qnui")
 }
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_ujja3")
+
+[node name="SpawnPoint1" type="Marker2D" parent="Spawner"]
+position = Vector2(-751, 351)
+script = ExtResource("4_c1ql2")
+spawn_chance = 100.0
+possible_items = Array[ExtResource("5_a8rl4")]([SubResource("Resource_gonlc"), SubResource("Resource_fby4a")])
+
+[node name="SpawnPoint2" type="Marker2D" parent="Spawner"]
+position = Vector2(-556, 746)
+script = ExtResource("4_c1ql2")
+spawn_chance = 70.0
+possible_items = Array[ExtResource("5_a8rl4")]([SubResource("Resource_c7gs1")])
 
 [connection signal="body_entered" from="TestRoom/RoomArea" to="TestRoom" method="_on_room_area_body_entered"]
 [connection signal="body_exited" from="TestRoom/RoomArea" to="TestRoom" method="_on_room_area_body_exited"]

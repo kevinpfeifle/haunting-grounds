@@ -1,11 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://dijyi56o1lbdt"]
+[gd_scene load_steps=14 format=3 uid="uid://dijyi56o1lbdt"]
 
 [ext_resource type="PackedScene" uid="uid://875d3auqxh85" path="res://scenes/objects/default_object.tscn" id="1_gby4o"]
+[ext_resource type="Texture2D" uid="uid://bfbn3fn8geo2k" path="res://assets/sprites/objects/candle_animation.png" id="2_4a3do"]
 [ext_resource type="Texture2D" uid="uid://bf1w87cw4hb2j" path="res://assets/sprites/objects/candle.png" id="2_8gbtm"]
+[ext_resource type="Script" path="res://scripts/objects/candle.gd" id="2_d1ht6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gmhy"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(150, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j41ww"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(200, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6pv2"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(250, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dxjx"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(300, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgsct"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(350, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ggm"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(400, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_behlc"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(450, 0, 50, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnlhu"]
+atlas = ExtResource("2_4a3do")
+region = Rect2(500, 0, 50, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqqc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gmhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j41ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6pv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dxjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgsct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4ggm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_behlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnlhu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="Candle" instance=ExtResource("1_gby4o")]
+script = ExtResource("2_d1ht6")
 object_name = "Candle"
-description = "It burns"
+description = "This is a candle"
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_hqqc5")
+autoplay = "default"
+frame_progress = 0.857356
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(1, 9)
 texture = ExtResource("2_8gbtm")

@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bqbigqdlnqval" path="res://scenes/player/player_controller.tscn" id="1_pshu1"]
 [ext_resource type="PackedScene" uid="uid://cp38n3dvafl7g" path="res://scenes/levels/mourningwood_manor.tscn" id="2_uft56"]
+[ext_resource type="PackedScene" uid="uid://dn2swci5jusut" path="res://scenes/enemy/enemy.tscn" id="4_dafo8"]
+[ext_resource type="PackedScene" uid="uid://c35vc0xyg14g8" path="res://scenes/ui/UI.tscn" id="5_ej56s"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -11,3 +13,8 @@ position = Vector2(2, 89)
 
 [node name="PlayerController" parent="Mourningwood Manor" instance=ExtResource("1_pshu1")]
 position = Vector2(-362, 731)
+
+[node name="Enemy" parent="Mourningwood Manor" instance=ExtResource("4_dafo8")]
+position = Vector2(-2145, 82)
+
+[node name="UI" parent="." instance=ExtResource("5_ej56s")]

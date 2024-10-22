@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://tvytredbihgx"]
+[gd_scene load_steps=5 format=3 uid="uid://tvytredbihgx"]
 
 [ext_resource type="PackedScene" uid="uid://bqbigqdlnqval" path="res://scenes/player/player_controller.tscn" id="1_pshu1"]
 [ext_resource type="PackedScene" uid="uid://cp38n3dvafl7g" path="res://scenes/levels/mourningwood_manor.tscn" id="2_uft56"]

@@ -51,7 +51,7 @@ func spawn_items():
         if not spawned_in_this_pass:
             print("Warning: Could not spawn the required number of items.")
             break
-
+    
 func should_spawn(spawn_chance: float) -> bool:
     return randf() * 100 <= spawn_chance
 

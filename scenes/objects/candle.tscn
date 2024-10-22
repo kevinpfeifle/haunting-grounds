@@ -71,6 +71,8 @@ animations = [{
 
 [node name="Candle" instance=ExtResource("1_gby4o")]
 script = ExtResource("2_d1ht6")
+object_name = "Candle"
+description = "This is a candle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_hqqc5")

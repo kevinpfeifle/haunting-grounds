@@ -12,6 +12,8 @@ script = ExtResource("1_wqwkf")
 scale = Vector2(1.00901, 1.05702)
 script = ExtResource("1_1yned")
 zoom_speed = 0.178
+max_zoom = null
+camera_speed = null
 
 [node name="RayCast2D" type="RayCast2D" parent="Camera"]
 collision_mask = 2

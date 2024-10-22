@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cp38n3dvafl7g"]
+[gd_scene load_steps=43 format=4 uid="uid://cp38n3dvafl7g"]
 
 [ext_resource type="TileSet" uid="uid://cevxebqg38bcs" path="res://assets/tilesets/mourningwood_manor.tres" id="1_2dm2y"]
 [ext_resource type="Script" path="res://scripts/building/room.gd" id="1_dnbas"]
@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/objects/SpawnPoint.gd" id="4_c1ql2"]
 [ext_resource type="Texture2D" uid="uid://c72eu46d86vst" path="res://assets/sprites/building/walls/wall_brown_right.png" id="4_kxjlg"]
 [ext_resource type="Texture2D" uid="uid://cos74mgspbe6y" path="res://assets/sprites/building/floors/floor_wood.png" id="5_1q5ai"]
-[ext_resource type="Texture2D" uid="uid://deoqgmclew6g3" path="res://assets/sprites/building/doors/doorway_brown_right.png" id="5_vbrse"]
 [ext_resource type="Script" path="res://scripts/objects/ObjectSpawnInfo.gd" id="5_a8rl4"]
+[ext_resource type="Texture2D" uid="uid://deoqgmclew6g3" path="res://assets/sprites/building/doors/doorway_brown_right.png" id="5_vbrse"]
 [ext_resource type="PackedScene" uid="uid://dijyi56o1lbdt" path="res://scenes/objects/candle.tscn" id="6_0wjly"]
 [ext_resource type="Texture2D" uid="uid://dm3vw4kq5px2a" path="res://assets/sprites/building/ceilings/ceiling_shadow_center.png" id="6_1f1hp"]
 [ext_resource type="PackedScene" uid="uid://dtdeplaixpape" path="res://scenes/objects/urn.tscn" id="7_5qc06"]
@@ -356,13 +356,13 @@ libraries = {
 script = ExtResource("3_ujja3")
 
 [node name="SpawnPoint1" type="Marker2D" parent="Spawner"]
-position = Vector2(-751, 351)
+position = Vector2(-670, 554)
 script = ExtResource("4_c1ql2")
 spawn_chance = 100.0
 possible_items = Array[ExtResource("5_a8rl4")]([SubResource("Resource_gonlc"), SubResource("Resource_fby4a")])
 
 [node name="SpawnPoint2" type="Marker2D" parent="Spawner"]
-position = Vector2(-556, 746)
+position = Vector2(-397, 840)
 script = ExtResource("4_c1ql2")
 spawn_chance = 70.0
 possible_items = Array[ExtResource("5_a8rl4")]([SubResource("Resource_c7gs1")])

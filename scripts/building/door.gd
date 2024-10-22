@@ -23,6 +23,7 @@ func _ready():
 	sprite = $Sprite
 	sprite_closed = load("res://assets/sprites/building/doors/" + closed_door_sprite_name)
 	sprite_opened = load("res://assets/sprites/building/doors/" + open_door_sprite_name)
+	sprite.texture = sprite_closed
 
 func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -35,11 +36,12 @@ func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: 
 			click_area.scale.x = click_area.scale.x * -1
 			collision_area.scale.x = collision_area.scale.x * -1
 			collision_area.disabled = false
+			position.y += 5.05
 			if direction == "LEFT":
-				pass
+				position.x += 180
 			else:
 				position.x -= 180
-				position.y += 5.05
+				
 		else:
 			opened = true
 			sprite.texture = sprite_opened
@@ -49,17 +51,8 @@ func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: 
 			click_area.scale.x = click_area.scale.x * -1
 			collision_area.scale.x = collision_area.scale.x * -1
 			collision_area.disabled = true
+			position.y -= 5.05
 			if direction == "LEFT":
-				pass
+				position.x -= 180
 			else:
 				position.x += 180
-				position.y -= 5.05
-
-# origpos = -104, 309.8
-# movedpos = 49, 329.8
-
-# oldpos = -125, 572.472
-# newpos = 229,554.426
-
-
-# offset is 100,-175

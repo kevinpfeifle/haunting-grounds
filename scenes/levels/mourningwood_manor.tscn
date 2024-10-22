@@ -261,11 +261,16 @@ tile_set = ExtResource("1_2dm2y")
 
 [node name="FrontWalls" type="TileMapLayer" parent="TestRoom"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAAAD//wIAAQAAAAAAAAAAAAMACAAAAAAAAAABAAIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wMAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAAAD//wIAAQAAAAAAAAAAAAMACAAAAAAAAAABAAIAAAAAAAAAAAD//wMAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_yg1d3")
 
 [node name="Door" parent="TestRoom/FrontWalls" instance=ExtResource("12_wjvd0")]
-position = Vector2(-122, 578.488)
+position = Vector2(-122, 579.49)
+
+[node name="Door2" parent="TestRoom/FrontWalls" instance=ExtResource("12_wjvd0")]
+position = Vector2(633, 578.488)
+scale = Vector2(-1, 1)
+direction = "LEFT"
 
 [node name="CeilingShadow" type="TileMapLayer" parent="TestRoom"]
 visible = false

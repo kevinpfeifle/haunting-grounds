@@ -7,7 +7,7 @@ enum enemy_states {MOVERIGHT, MOVELEFT, MOVEUP, MOVEDOWN}
 var current_states
 var dir
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	match current_states:
 		enemy_states.MOVERIGHT:
 			move_right()
@@ -22,7 +22,6 @@ func _physics_process(delta):
 #generates a random num from 0-3 for random_direction
 func random_generation():
 	dir = randi() % 4
-	print(dir)
 	random_direction()
 
 func random_direction():
